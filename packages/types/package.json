@@ -1,0 +1,12 @@
+{
+  "name": "@raiju/types",
+  "version": "1.0.0",
+  "description": "Shared types for Raiju",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^4.9.5"
+  }
+}

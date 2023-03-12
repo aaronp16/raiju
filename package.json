@@ -4,14 +4,15 @@
   "description": "Raiju Monorepo",
   "private": true,
   "scripts": {
-    "build": "tsc --build --verbose",
-    "dev:web-app": "npm run dev --workspace=@monorepo/web-app",
-    "dev": "npm run dev:web-app"
+    "dev:api": "npm run dev --workspace=@raiju/api",
+    "dev:web-app": "npm run dev --workspace=@raiju/web-app",
+    "dev": "npm run dev:web-app & npm run dev:api"
   },
   "workspaces": [
     "packages/*"
   ],
   "dependencies": {
+    "find-up": "^6.3.0",
     "typescript": "^4.9.5"
   },
   "devDependencies": {

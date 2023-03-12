@@ -3,24 +3,28 @@
     "incremental": true,
     "target": "es2022",
     "module": "commonjs",
-    "declaration": true,
+    "typeRoots": [
+      "./types"
+    ],
     "strict": true,
-    "any": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": "./src",
-    "outDir": "./build"
+    "outDir": "build"
   },
   "files": [
   ],
   "references": [
     {
-      "path": "./packages/utils"
+      "path": "./packages/web-app"
     },
     {
-      "path": "./packages/web-app"
+      "path": "./packages/types"
+    },
+    {
+      "path": "./packages/api"
     }
   ]
 }
