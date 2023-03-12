@@ -1,0 +1,21 @@
+{
+  "name": "raiju",
+  "version": "1.0.0",
+  "description": "Raiju Monorepo",
+  "private": true,
+  "scripts": {
+    "build": "tsc --build --verbose",
+    "dev:web-app": "npm run dev --workspace=@monorepo/web-app",
+    "dev": "npm run dev:web-app"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "typescript": "^4.9.5"
+  },
+  "devDependencies": {
+    "@types/node": "^18.15.0",
+    "ts-node": "^10.9.1"
+  }
+}
