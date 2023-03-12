@@ -4,12 +4,15 @@ import usePower from './hooks/usePower';
 import React, { useCallback, useEffect, useState } from 'react';
 import DeviceMenu from './components/DeviceMenu';
 import usePC from './hooks/usePC';
+import { PowersType, POWER_OFF, POWER_ON } from '@raiju/types';
 
 function App() {
   const { wakePC, sleepPC } = usePC();
   const { powerCheck } = usePower();
 
-  const [pcPower, setPcPower] = useState<'on' | 'off'>('off');
+  console.log(POWER_ON, POWER_OFF);
+
+  const [pcPower, setPcPower] = useState<PowersType>(POWER_OFF);
 
   useEffect(() => {
     powerCheck.call();
@@ -23,13 +26,13 @@ function App() {
 
   useEffect(() => {
     if (wakePC.responseData) {
-      setPcPower(wakePC.responseData.power);
+      setPcPower(wakePC.responseData.pc);
     }
   }, [wakePC.responseData]);
 
   useEffect(() => {
     if (sleepPC.responseData) {
-      setPcPower(sleepPC.responseData.power);
+      setPcPower(sleepPC.responseData.pc);
     }
   }, [sleepPC.responseData]);
 
@@ -44,7 +47,7 @@ function App() {
 
   const handlePcPower = useCallback(() => {
     if (!wakePC.isLoading && !sleepPC.isLoading) {
-      if (pcPower === 'on') {
+      if (pcPower === POWER_ON) {
         handleSleep();
       } else {
         handleWake();
@@ -55,7 +58,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <DeviceMenu loading={wakePC.isLoading || sleepPC.isLoading} name="Computer" on={pcPower === 'on'} powerToggle={handlePcPower}>Hello, how are you</DeviceMenu>
+      <DeviceMenu loading={wakePC.isLoading || sleepPC.isLoading} name="Computer" on={pcPower === POWER_ON} powerToggle={handlePcPower}>Hello, how are you</DeviceMenu>
     </div>
   );
 }

@@ -1,1 +1,0 @@
-export type BaconType = number | null | undefined;

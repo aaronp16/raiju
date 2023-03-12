@@ -2,8 +2,7 @@
   "name": "@raiju/types",
   "version": "1.0.0",
   "description": "Shared types for Raiju",
-  "main": "index.js",
-  "types": "index.d.ts",
+  "main": "index.ts",
   "author": "",
   "license": "ISC",
   "devDependencies": {

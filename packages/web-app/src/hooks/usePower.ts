@@ -1,12 +1,11 @@
+import { PowerResponseType } from '@raiju/types';
 import useApi from './useApi';
 
 // TODO Shared types
-interface PowerResponse {
-  pc: 'on' | 'off';
-}
+
 
 const usePower = () => {
-  const powerCheck = useApi<PowerResponse>({
+  const powerCheck = useApi<PowerResponseType>({
     method: 'GET',
     url: '//localhost:9001/power/check'
   });

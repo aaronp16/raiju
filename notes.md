@@ -1,0 +1,4 @@
+- [ ] ESLint monorepo
+- [ ] Configure transmission on PC to listen for torrent files
+- [ ] Upload torrent files, only accept torrent
+- [ ] See if I can fetch transmission details

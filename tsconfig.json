@@ -1,11 +1,8 @@
 {
   "compilerOptions": {
     "incremental": true,
-    "target": "es2022",
-    "module": "commonjs",
-    "typeRoots": [
-      "./types"
-    ],
+    "target": "ESNext",
+    "module": "ESNext",
     "strict": true,
     "moduleResolution": "node",
     "esModuleInterop": true,
@@ -14,8 +11,6 @@
     "rootDir": "./src",
     "outDir": "build"
   },
-  "files": [
-  ],
   "references": [
     {
       "path": "./packages/web-app"

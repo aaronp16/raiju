@@ -3,15 +3,15 @@ import { NodeSSH } from 'node-ssh';
 import wol from 'wol';
 import ping from 'ping';
 
-import { PC_ETHERNET_MAC_ADDRESS, PC_IP, Power, POWER_OFF, POWER_ON } from '../constants';
+import { PC_ETHERNET_MAC_ADDRESS, PC_IP } from '../constants';
+import { PowersType, POWER_OFF, POWER_ON } from '@raiju/types';
 
-const checkPower = (power: Power, res: Response) => ping.sys.probe(PC_IP, (isAlive) => {
-  console.log('checking power');
-  if ((power === 'on' && !isAlive) || (power === 'off' && isAlive)) {
+const checkPower = (power: PowersType, res: Response) => ping.sys.probe(PC_IP, (isAlive) => {
+  if ((power === POWER_ON && !isAlive) || (power === POWER_OFF && isAlive)) {
     checkPower(power, res);
   } else {
     res.json({
-      power: isAlive ? POWER_ON : POWER_OFF
+      pc: isAlive ? POWER_ON : POWER_OFF
     });
   }
 });
@@ -21,7 +21,7 @@ const pcController = {
     try {
       wol.wake(PC_ETHERNET_MAC_ADDRESS);
       
-      checkPower('on', res);
+      checkPower(POWER_ON, res);
     } catch (err: unknown) {
       console.error('Error calling wake():', err);
       next(err);
@@ -38,7 +38,7 @@ const pcController = {
       }).then(() => {
         ssh.execCommand('%windir%/System32/rundll32.exe powrprof.dll,SetSuspendState 0,1,0');
 
-        checkPower('off', res);
+        checkPower(POWER_OFF, res);
       });
     } catch (err: unknown) {
       console.error('Error calling sleep():', err);

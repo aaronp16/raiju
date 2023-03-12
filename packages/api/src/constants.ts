@@ -11,8 +11,3 @@ export const DEVICES = [PC_DEVICE] as const;
 export type DevicesType = typeof DEVICES[number];
 
 export const DEVICE_ADDRESSES = [PC_IP];
-
-export const POWER_ON = 'on';
-export const POWER_OFF = 'off';
-
-export type Power = typeof POWER_ON | typeof POWER_OFF;
