@@ -4,8 +4,8 @@
   "description": "Raiju Monorepo",
   "private": true,
   "scripts": {
-    "release:api": "npm run dev --workspace=@raiju/api",
-    "release:web-app": "npm run dev --workspace=@raiju/web-app",
+    "release:api": "npm run build --workspace=@raiju/api",
+    "release:web-app": "npm run build --workspace=@raiju/web-app",
     "dev:api": "npm run dev --workspace=@raiju/api",
     "dev:web-app": "npm run dev --workspace=@raiju/web-app",
     "dev": "npm run dev:web-app & npm run dev:api"
