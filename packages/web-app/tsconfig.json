@@ -7,7 +7,7 @@
     "outDir": "./build",
     "composite": true,
     "incremental": true,
-    "tsBuildInfoFile": "./build-cache",
+    "tsBuildInfoFile": ".vite_cache",
     "skipLibCheck": true,
     "allowJs": false,
     "esModuleInterop": true,

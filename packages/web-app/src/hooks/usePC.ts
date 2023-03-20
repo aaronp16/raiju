@@ -4,17 +4,17 @@ import useApi from '../hooks/useApi';
 const usePC = () => {
   const wakePC = useApi<PowerResponseType>({
     method: 'GET',
-    url: '//localhost:9001/pc/wake'
+    url: '//localhost:9001/pc/wake',
   });
 
   const sleepPC = useApi<PowerResponseType>({
     method: 'GET',
-    url: '//localhost:9001/pc/sleep'
+    url: '//localhost:9001/pc/sleep',
   });
 
   const checkPC = useApi<PowerResponseType>({
     method: 'GET',
-    url: '//localhost:9001/pc/check'
+    url: '//localhost:9001/pc/check',
   });
 
   return { wakePC, sleepPC, checkPC };

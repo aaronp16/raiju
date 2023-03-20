@@ -7,7 +7,7 @@ import { PowersType, POWER_OFF, POWER_ON } from '@raiju/types';
 const powerController = {
   check: async (req: Request, res: Response, next: NextFunction) => {
     try {
-      let devices: {[key in DevicesType]?: PowersType} = {};
+      const devices: { [key in DevicesType]?: PowersType } = {};
 
       for (const device of DEVICES) {
         const { alive } = await ping.promise.probe(DEVICES_IPS[device]);
@@ -21,7 +21,7 @@ const powerController = {
       console.error('Error calling check():', error);
       next(error);
     }
-  }
+  },
 };
 
 export default powerController;

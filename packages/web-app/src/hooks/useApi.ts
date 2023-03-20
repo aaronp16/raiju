@@ -3,7 +3,6 @@ import { useState } from 'react';
 import axios from 'axios';
 import { FAILED, INIT, LOADING, SUCCESS } from '../constants/api';
 
-
 export interface ApiCallProps {
   payload?: object;
   urlParams?: {
@@ -40,7 +39,13 @@ export interface UseApiProps {
  * With some projects we do not have a wrapper hook and one should be created
  * if applicable.
  */
-const useApi = <T>({ method, url, headers = {}, formData = false, onError }: UseApiProps) => {
+const useApi = <T>({
+  method,
+  url,
+  headers = {},
+  formData = false,
+  onError,
+}: UseApiProps) => {
   const [status, setStatus] = useState(INIT);
   const [responseData, setResponseData] = useState<T | null>(null);
 
@@ -70,14 +75,16 @@ const useApi = <T>({ method, url, headers = {}, formData = false, onError }: Use
     if (requestData instanceof FormData && payload) {
       Object.entries(payload).forEach(([key, value]) => {
         if (typeof value === 'object') {
-          value.forEach((subValue: string) => {
-            requestData.append(`${key}[]`, subValue);
-          });
+          for (let i = 0; i < value.length; i++) {
+            requestData.append(`${key}[]`, value[i]);
+          }
         } else {
           requestData.append(key, value);
         }
       });
     }
+
+    console.log(requestData);
 
     try {
       const result = await axios({

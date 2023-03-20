@@ -1,4 +1,11 @@
-- [ ] ESLint monorepo
-- [ ] Configure transmission on PC to listen for torrent files
-- [ ] Upload torrent files, only accept torrent
+- [x] ESLint monorepo
+- [x] Close folder explorer by default
+- [x] When file opens, close terminal
+- [x] Vite runtime node_modules folder, move to root?
+- [x] Configure transmission on PC to listen for torrent files
+- [x] Upload torrent files, only accept torrent
+- [x] Start transmission on windows start
+- [x] Delete items inside uploads and delete torrent files
+- [ ] Can I somehow set up seperate Jellyfin library folders by passing in a folder name?
+- [ ] 
 - [ ] See if I can fetch transmission details

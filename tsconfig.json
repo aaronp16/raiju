@@ -11,6 +11,8 @@
     "rootDir": "./src",
     "outDir": "build"
   },
+  "files": [
+  ],
   "references": [
     {
       "path": "./packages/web-app"

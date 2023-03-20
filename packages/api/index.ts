@@ -3,11 +3,11 @@ import dotenv from 'dotenv';
 import bodyParser from 'body-parser';
 import pcRouter from './src/routes/pcRoute';
 import powerRouter from './src/routes/powerRoute';
+import transmissionRouter from './src/routes/transmissionRoute';
 
 dotenv.config({
-  path: '../../.env'
+  path: '../../.env',
 });
-
 
 const app = express();
 const port = process.env['PORT'];
@@ -18,6 +18,7 @@ app.use(bodyParser.json());
 // app.use(verifyToken);
 app.use('/pc', pcRouter);
 app.use('/power', powerRouter);
+app.use('/transmission', transmissionRouter);
 // app.use('/tag', tagsRouter);
 // app.use('/user', usersRouter);
 
